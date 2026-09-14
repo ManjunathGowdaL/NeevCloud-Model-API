@@ -255,13 +255,4 @@ don't match the documented `{error: {message, type}}` shape.
 The latest raw test-run export is kept at
 [`results/latest-run.json`](./results/latest-run.json) for reference.
 
-## Extending this suite
 
-Add new schemas/requests via `build_collection.py` (mirror the existing
-Functional/Negative/EdgeCases folder split for new endpoints, e.g.
-embeddings or images) and regenerate with `python build_collection.py`.
-
-CI suggestion: run `newman run ... -m "not ratelimit"`-equivalent (i.e.
-skip the "5. Rate Limiting" folder) on every PR against a low-usage test
-key; run the full suite including rate limiting on a scheduled nightly
-job against a dedicated non-production key.
